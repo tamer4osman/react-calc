@@ -1,12 +1,15 @@
 import React from 'react';
-import './Butten.css';
+import './Button.css';
 
 const isOperator = val =>{
     return !isNaN(val) || val ==="." || val==="=" 
 }
-const Button = props =><div 
-className= {`button-wrapper ${isOperator? null : "operator"}`}
->
-{props.children}
-</div>
-export default Button;
+export const Button = props =>(
+    <div 
+        className= {`button-wrapper ${
+            isOperator(props.children)? null : "operator"
+        }`}
+        >
+        {props.children}
+    </div>
+)
